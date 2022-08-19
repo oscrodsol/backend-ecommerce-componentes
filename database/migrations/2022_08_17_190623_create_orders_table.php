@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('adress', 191);
             $table->string('tracking', 191);
             $table->boolean('delivered')->default(false);
-            $table->string('total', 191);
+            $table->decimal('total_price', 10, 2);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
