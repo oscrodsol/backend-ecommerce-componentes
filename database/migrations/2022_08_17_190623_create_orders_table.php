@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('payment', 191);
+            $table->string('adress', 191);
+            $table->string('tracking', 191);
+            $table->boolean('delivered')->default(false);
+            $table->string('total', 191);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

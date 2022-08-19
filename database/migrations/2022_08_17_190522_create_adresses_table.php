@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('city', 191);
             $table->string('state', 191);
-            $table->string('zip', 191);
+            $table->integer('zip');
             $table->string('street', 191);
             $table->string('phone', 191);
             $table->timestamps();
