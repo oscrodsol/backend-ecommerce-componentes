@@ -27,13 +27,13 @@ class ProductController extends Controller
         }
     }
 
-    public function createGame(Request $request)
+    public function createProduct(Request $request)
     {
         try {
-            Log::info("Creating a game");
+            Log::info("Creating a product");
 
             $validator = Validator::make($request->all(), [
-                'title' => 'required|string',
+                'name' => 'required|string',
                 'description' => 'required|string',
             ]);
 
@@ -47,32 +47,41 @@ class ProductController extends Controller
                 );
             };
 
-            $title = $request->input('title');
+            $name = $request->input('name');
+            $price = $request->input('price');
             $description = $request->input('description');
-            $userId = auth()->user()->id;
+            $image = $request->input('image');
+            $type_id = $request->input('type_id');
+            $specifications = $request->input('specifications');
+            $stock = $request->input('stock');
 
-            $game = new Product();
-            $game->title = $title;
-            $game->user_id = $userId;
-            $game->description = $description;
 
-            $game->save();
+            $product = new Product();
+            $product->name = $name;
+            $product->price = $price;
+            $product->description = $description;
+            $product->image = $image;
+            $product->type_id = $type_id;
+            $product->specifications = $specifications;
+            $product->stock = $stock;
+
+            $product->save();
 
 
             return response()->json(
                 [
                     'success' => true,
-                    'message' => "Game created"
+                    'message' => "Product created"
                 ],
                 200
             );
         } catch (\Exception $exception) {
-            Log::error("Error creating game: " . $exception->getMessage());
+            Log::error("Error creating product: " . $exception->getMessage());
 
             return response()->json(
                 [
                     'success' => false,
-                    'message' => "Error creating Game"
+                    'message' => "Error creating Product"
                 ],
                 500
             );
