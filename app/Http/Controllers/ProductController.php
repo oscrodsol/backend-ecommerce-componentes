@@ -88,16 +88,16 @@ class ProductController extends Controller
         }
     }
 
-     public function getGameByTitle(Request $request, $title)
+     public function getProductByName(Request $request, $name)
     {
 
         try {
-            $game = Product::query()->where('title', $title)->get();
+            $product = Product::query()->where('name', $name)->get();
 
             return response()->json([
                 'success' => true,
-                'message' => 'Games retrieved successfully',
-                'data' => $game
+                'message' => 'Products retrieved successfully',
+                'data' => $product
             ]);
         } catch (\Exception $exception) {
             return response()->json([
