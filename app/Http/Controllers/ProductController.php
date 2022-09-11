@@ -107,32 +107,32 @@ class ProductController extends Controller
         }
     } 
 
-      public function deleteGameById($id)
+      public function deleteProductById($id)
     {
         try {
-            Log::info('Delete game with the id ' . $id);
+            Log::info('Delete product with the id ' . $id);
 
-            $game = Product::find($id);
+            $product = Product::find($id);
 
-            if (!$game) {
+            if (!$product) {
                 return response()->json([
                     'success' => false,
-                    'message' => "The game doesn't exist"
+                    'message' => "The product doesn't exist"
                 ], 200);
             }
 
-            $game->delete();
+            $product->delete();
 
             return response()->json([
                 'success' => true,
-                'message' => 'Game ' . $id . ' deleted successfully'
+                'message' => 'product ' . $id . ' deleted successfully'
             ], 200);
         } catch (\Exception $exception) {
-            Log::error('Updating game ' . $exception->getMessage());
+            Log::error('Updating product ' . $exception->getMessage());
 
             return response()->json([
                 'success' => false,
-                'message' => 'Error deleting game'
+                'message' => 'Error deleting product'
             ], 500);
         }
     } 
