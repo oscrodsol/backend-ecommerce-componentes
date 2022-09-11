@@ -20,6 +20,8 @@ Route::get('/', function(){
     return 'Welcome!';
 });
 
+////////////////////////////////////////////USER ENDPOINTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -28,4 +30,13 @@ Route::group(["middleware" => "jwt.auth"] , function() {
     Route::post('/logout', [AuthController::class, 'logout']); 
 });
 
+////////////////////////////////////////////PRODUCT ENDPOINTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]] , function() {
+    Route::post('/create_product', [ProductController::class, 'createProduct']);
+    Route::delete('/delete_product/{id}', [ProductController::class, 'deleteProductById']);
+    Route::put('/update_product/{id}', [ProductController::class, 'modifyProductById']);
+});
+
 Route::get('/get_all_products', [ProductController::class, 'getAllProducts']);
+Route::get('/product_by_title/{title}', [ProductController::class, 'getProductByName']);
