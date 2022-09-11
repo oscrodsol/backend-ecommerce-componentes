@@ -137,35 +137,37 @@ class ProductController extends Controller
         }
     } 
 
-     public function modifyGameById(Request $request, $id)
+     public function modifyProductById(Request $request, $id)
     {
         try {
-            Log::info("Updating game");
+            Log::info("Updating product");
 
-            $game = Product::query()->where('id', $id)->first();
+            $product = Product::query()->where('id', $id)->first();
 
-            $validator = Validator::make($request->all(), [
-                'title' => 'required|string',
-                'description' => 'required|string',
-                'status' => 'required|integer',
-            ]);
-
-            if ($validator->fails()) {
+            if (!$product) {
                 return response()->json([
                     'success' => false,
-                    'message' => $validator->errors()
-                ]);
+                    'message' => "The product doesn't exist"
+                ], 200);
             }
 
-            $title = $request->input('title');
+            $name = $request->input('name');
+            $price = $request->input('price');
             $description = $request->input('description');
-            $status = $request->input('status');
+            $image = $request->input('image');
+            $type_id = $request->input('type_id');
+            $specifications = $request->input('specifications');
+            $stock = $request->input('stock');
 
-            $game->title = $title;
-            $game->description = $description;
-            $game->status = $status;
+            $product->name = $name;
+            $product->price = $price;
+            $product->description = $description;
+            $product->image = $image;
+            $product->type_id = $type_id;
+            $product->specifications = $specifications;
+            $product->stock = $stock;
 
-            $game->save();
+            $product->save();
 
             return response()->json([
                 'success' => true,
