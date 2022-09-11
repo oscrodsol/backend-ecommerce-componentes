@@ -27,24 +27,6 @@ class ProductController extends Controller
         }
     }
 
-    public function getAllGamesInfo()
-    {
-        try {
-             $games = Product::query()->get();
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Games retrieved successfully',
-                'data' => $games
-            ]);
-        } catch (\Exception $exception) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error retrieving ' . $exception->getMessage()
-            ]);
-        }
-    }
-
     public function createGame(Request $request)
     {
         try {
