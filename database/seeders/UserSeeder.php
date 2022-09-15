@@ -25,10 +25,59 @@ class UserSeeder extends Seeder
             'image' => 'user',
             'birth_date' => 'user',
             'phone' => '+34987987987',
-            '2SV' => false,
             'status' => true,
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now()
         ]);
+
+        DB::table('role_user')->insert([
+            'user_id' => 1,
+            'role_id' => 3,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now()
+        ]);
+
+        DB::table('users')->insert([
+            'nick' => 'admin',
+            'name' => 'Marta',
+            'surname' => 'Garcia',
+            'email' => 'adios@gmail.com',
+            'password' => bcrypt('1234'),
+            'image' => 'user',
+            'birth_date' => 'user',
+            'phone' => '+34987987987',
+            'status' => true,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now()
+        ]);
+
+        DB::table('role_user')->insert([
+            'user_id' => 2,
+            'role_id' => 2,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now()
+        ]);
+
+        DB::table('users')->insert([
+            'nick' => 'elusuario',
+            'name' => 'Carlos',
+            'surname' => 'Gonzalez',
+            'email' => 'jeje@gmail.com',
+            'password' => bcrypt('1234'),
+            'image' => 'user',
+            'birth_date' => 'user',
+            'phone' => '+34987987987',
+            'status' => true,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now()
+        ]);
+
+        DB::table('role_user')->insert([
+            'user_id' => 3,
+            'role_id' => 1,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now()
+        ]);
+
     }
 }
