@@ -22,9 +22,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 191);
             $table->string('image', 191)->nullable();
-            $table->string('birth_date', 191)->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('phone', 191)->nullable();
-            $table->boolean('2SV')->default(false);
             $table->boolean('status')->default(true);
             $table->rememberToken()->nullable();
             $table->timestamps();

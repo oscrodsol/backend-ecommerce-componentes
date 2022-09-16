@@ -18,4 +18,9 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function states()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

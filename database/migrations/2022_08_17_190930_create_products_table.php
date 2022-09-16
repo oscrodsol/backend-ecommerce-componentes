@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('type_id');
             $table->string('specifications', 191);
             $table->integer('stock');
+            $table->boolean('status')->default(true);
             $table->timestamps();
 
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
