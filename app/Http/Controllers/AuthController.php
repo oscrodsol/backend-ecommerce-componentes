@@ -75,4 +75,41 @@ class AuthController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function modifyUser(Request $request)
+    {
+        $userId = auth()->user()->id;
+
+        try {
+            $user = User::find($userId);
+
+            $validator = Validator::make($request->all(), [
+                'nick' => 'required|string',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->errors()
+                ]);
+            }
+
+            $nick = $request->input('nick');
+
+
+            $user->nick = $nick;
+
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'User ' . $userId . ' updated successfully'
+            ], 200);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error updating users'
+            ], 500);
+        }
+    }
 }
