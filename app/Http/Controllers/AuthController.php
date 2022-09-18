@@ -84,7 +84,11 @@ class AuthController extends Controller
             $user = User::find($userId);
 
             $validator = Validator::make($request->all(), [
-                'nick' => 'required|string',
+                'nick' => 'string',
+                'name' => 'string',
+                'surname' => 'string',
+                'password' => 'string',
+                'phone' => 'string',
             ]);
 
             if ($validator->fails()) {
@@ -95,9 +99,16 @@ class AuthController extends Controller
             }
 
             $nick = $request->input('nick');
-
+            $name = $request->input('name');
+            $surname = $request->input('surname');
+            $password = bcrypt($request->password);
+            $phone = $request->input('phone');
 
             $user->nick = $nick;
+            $user->name = $name;
+            $user->surname = $surname;
+            $user->password = $password;
+            $user->phone = $phone;
 
             $user->save();
 
