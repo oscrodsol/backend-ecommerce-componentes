@@ -29,6 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(["middleware" => "jwt.auth"] , function() {
     Route::get('/profile', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']); 
+    Route::put('/modify', [AuthController::class, 'modifyUser']);
 });
 
 ////////////////////////////////////////////PRODUCT ENDPOINTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -51,3 +52,13 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]] , function() {
 });
 
 Route::get('/get_all_Types', [TypeController::class, 'getAllTypes']);
+
+//////////////////////////////////////////////ADMIN ENDPOINTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]] , function() {
+    Route::post('/user/add_super_admin/{id}', [AdminController::class, 'addSuperAdminRoleToUser']);
+    Route::post('/user/remove_super_admin/{id}', [AdminController::class, 'removeSuperAdminRoleToUser']);
+    Route::post('/user/add_admin/{id}', [AdminController::class, 'addAdminRoleToUser']);
+    Route::post('/user/remove_admin/{id}', [AdminController::class, 'removeAdminRoleToUser']);
+    Route::delete('/delete_user_by_id/{id}', [AuthController::class, 'deleteUserById']);
+});
