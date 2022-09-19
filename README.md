@@ -20,27 +20,27 @@ Puedes acceder a las rutas desde este link: https://immense-castle-69938.herokua
 
 ## Inicializar el proyecto y la base de datos:
 
-Para inicializar el proyecto en local, lo primero será descargarse el archivo y descomprimirlo en su pc, una vez hecho esto, si lo abre con visual studio code, tendra que instalar los componentes necesarios escribiendo en la consola `composer install`.
-Una vez nos instale todo lo necesario, tendremos que eliminar el .example del nombre del archivo `.env.example`, alli deberemos escribir las credenciales de nuestra base de datos y podemos ejecutar el comando `php artisan migrate`, si por cualquier cosa las tablas no se suben de forma correcta o se quiere hacer un cambio en el futuro esto se soluciona con el comando `php artisan migrate:rollback`,pero hay que tener en cuenta que se elimina absolutamente todo, menos la tabla migraciones.
+Para inicializar el proyecto en local, lo primero será descargarse el archivo y descomprimirlo en su pc, una vez hecho esto, si lo abre con visual studio code, tendra que instalar los componentes necesarios escribiendo en la consola `composer install`.<br/><br/>
+Una vez nos instale todo lo necesario, tendremos que eliminar el .example del nombre del archivo `.env.example`, alli deberemos escribir las credenciales de nuestra base de datos y podemos ejecutar el comando `php artisan migrate`, si por cualquier cosa las tablas no se suben de forma correcta o se quiere hacer un cambio en el futuro esto se soluciona con el comando `php artisan migrate:rollback`,pero hay que tener en cuenta que se elimina absolutamente todo, menos la tabla migraciones.<br/>
 
-Cuando hayamos migrado las tablas y sus relaciones, poblaremos las tablas con los seeders, que en este orden se deberan escribir y ejecutar estos comandos para evitar errores:
-`php artisan db:seed --class RoleSeeder`
-`php artisan db:seed --class TypeSeeder`
-`php artisan db:seed --class StateSeeder`
-`php artisan db:seed --class UserSeeder`
-`php artisan db:seed --class ProductSeeder`
+Cuando hayamos migrado las tablas y sus relaciones, poblaremos las tablas con los seeders, que en este orden se deberan escribir y ejecutar estos comandos para evitar errores:<br/><br/>
+`php artisan db:seed --class RoleSeeder`<br/>
+`php artisan db:seed --class TypeSeeder`<br/>
+`php artisan db:seed --class StateSeeder`<br/>
+`php artisan db:seed --class UserSeeder`<br/>
+`php artisan db:seed --class ProductSeeder`<br/><br/>
 
 Una vez hecho esto, disponemos de un usuario super administrador, otro administrador y un usuario estandar, las credenciales para usarlos y trastear son:
 
-#####Super Admin:
-    email: sudo@gmail.com
-    contraseña: 1234
-#####Admin:
-    email: admin@gmail.com
-    contraseña: 1234
-#####Usuario:
-    email: user@gmail.com
-    contraseña: 1234
+<h4>Super Admin:</h4>
+     email: sudo@gmail.com <br/>
+     contraseña: 1234`
+<h4>Admin:</h4>
+     email: admin@gmail.com <br/>
+     contraseña: 1234
+<h4>Usuario:</h4>
+     email: user@gmail.com <br/>
+     contraseña: 1234
 
 Con esto ya se podria usar la pagina con total libertad, si me he equivocado en cualquier cosa no dudes en decirmelo ;)
 
@@ -91,6 +91,9 @@ Borra a un usuario conociendo su id: `api/delete_user_by_id/{id}`<br/>
 # Base de datos:
 
 Ingenieria inversa de las relaciones entre las tablas:
+
+
+![Entidad relacion proyecto final](https://user-images.githubusercontent.com/66917963/191113005-d71b623b-d7bf-4b7e-994f-3e12e3687d4f.png)
 
 
 # Tareas pendientes:
