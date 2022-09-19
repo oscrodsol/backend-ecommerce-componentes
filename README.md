@@ -1,64 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Backend e-commerce.</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h4 align="center">Backend de una tienda de componentes informaticos, en la que el usuario se puede dar de alta y usar la web como si para comprar se tratase.<h4>
 
-## About Laravel
+---
+# Tech Stack:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Se han utilizado las siguientes tecnologías: <br/><br/>
+ <code><img height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" /></code> <code><img  height="50"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg"></code> <code><img  height="50"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg"></code> 
+</a></code> <br/>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Acerca del proyecto:
 
-## Learning Laravel
+Proyecto final realizado para el Bootcamp Full Stack Developer de GeeksHubs, donde se ha desarrollado el backend en php y laravel de un e-commerce funcional.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+El proyecto tiene su seguimiento en este trello: https://trello.com/b/aB0E6OIw/proyecto-final
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Puedes acceder a las rutas desde este link: https://immense-castle-69938.herokuapp.com/api/
 
-## Laravel Sponsors
+## Inicializar el proyecto y la base de datos:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Para inicializar el proyecto en local, lo primero será descargarse el archivo y descomprimirlo en su pc, una vez hecho esto, si lo abre con visual studio code, tendra que instalar los componentes necesarios escribiendo en la consola `composer install`.
+Una vez nos instale todo lo necesario, tendremos que eliminar el .example del nombre del archivo `.env.example`, alli deberemos escribir las credenciales de nuestra base de datos y podemos ejecutar el comando `php artisan migrate`, si por cualquier cosa las tablas no se suben de forma correcta o se quiere hacer un cambio en el futuro esto se soluciona con el comando `php artisan migrate:rollback`,pero hay que tener en cuenta que se elimina absolutamente todo, menos la tabla migraciones.
 
-### Premium Partners
+Cuando hayamos migrado las tablas y sus relaciones, poblaremos las tablas con los seeders, que en este orden se deberan escribir y ejecutar estos comandos para evitar errores:
+`php artisan db:seed --class RoleSeeder`
+`php artisan db:seed --class TypeSeeder`
+`php artisan db:seed --class StateSeeder`
+`php artisan db:seed --class UserSeeder`
+`php artisan db:seed --class ProductSeeder`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Una vez hecho esto, disponemos de un usuario super administrador, otro administrador y un usuario estandar, las credenciales para usarlos y trastear son:
 
-## Contributing
+#####Super Admin:
+    email: sudo@gmail.com
+    contraseña: 1234
+#####Admin:
+    email: admin@gmail.com
+    contraseña: 1234
+#####Usuario:
+    email: user@gmail.com
+    contraseña: 1234
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Con esto ya se podria usar la pagina con total libertad, si me he equivocado en cualquier cosa no dudes en decirmelo ;)
 
-## Code of Conduct
+## Rutas de backend:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Página de bienvenida: `api/` <br/>
 
-## Security Vulnerabilities
+### Rutas de usuario:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Registro de usuario: `api/register`<br/>
+Login de usuario: `api/login`<br/>
 
-## License
+<h5>Rutas con auth:</h5>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ver el titulo y description de todos los juegos: `api/profile`<br/>
+Ver el titulo y description de todos los juegos: `api/logout`<br/>
+Busca un juego por su titulo: `api/modify`<br/><br/>
+
+### Rutas de producto:
+
+Ver tus propios datos de perfil: `api/get_all_products`<br/>
+Desloguearte de la página: `api/product_by_title{title}` <br/>
+
+<h5>Rutas con auth y super admin:</h5>
+
+Modifica tu nick de usuario: `api/create_product`<br/>
+Crea un canal con el id del juego: `api/delete_product/{id}`<br/>
+Unete a un canal conociendo su id: `api/update_product/{id}`<br/>
+
+### Rutas de tipo de producto:
+
+Deja a un canal al que perteneces conociendo su id: `api/get_all_Types`<br/>
+
+<h5>Rutas con auth y super admin:</h5>
+
+Manda un mensaje al canal al que perteneces conociendo su id: `api/create_Type`<br/>
+Modifica un mensaje tuyo conociendo su id: `api/delete_Type/{id}`<br/>
+Obten todos los mensajes de un canal al que perteneces conociendo su id: `api/update_Type/{id}`<br/>
+
+### Rutas de super administrador:
+
+Añade el rol super admin a un usuario conociendo su id: `api/user/add_super_admin/{id}`<br/>
+Retira el rol super admin a un usuario conociendo su id: `api/user/remove_super_admin/{id}`<br/>
+Añade el rol admin a un usuario conociendo su id: `api/user/add_admin/{id}`<br/>
+Retira el rol admin a un usuario conociendo su id: `api/user/remove_admin/{id}`<br/>
+Borra a un usuario conociendo su id: `api/delete_user_by_id/{id}`<br/>
+
+# Base de datos:
+
+Ingenieria inversa de las relaciones entre las tablas:
+
+
+# Tareas pendientes:
+  - [ ] Completar el crud en la parte de pedidos.
+  - [ ] Completar el crud en la parte de direcciones.
+  - [ ] Completar el crud en la parte de pagos.
+  - [ ] Añadir middleware de admin.
+  - [ ] Añadir rutas donde se emplee el middleware admin.
+  - [ ] Mejorar la sintaxis y comprension de codigo.
+      
