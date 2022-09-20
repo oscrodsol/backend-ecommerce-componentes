@@ -55,30 +55,30 @@ Login de usuario: `api/login`<br/>
 
 <h5>Rutas con auth:</h5>
 
-Ver el titulo y description de todos los juegos: `api/profile`<br/>
-Ver el titulo y description de todos los juegos: `api/logout`<br/>
-Busca un juego por su titulo: `api/modify`<br/><br/>
+Ver tus datos de usuario: `api/profile`<br/>
+Desloguear tu usuario de la pagina: `api/logout`<br/>
+Modificar tu usuario: `api/modify`<br/><br/>
 
 ### Rutas de producto:
 
-Ver tus propios datos de perfil: `api/get_all_products`<br/>
-Desloguearte de la página: `api/product_by_title{title}` <br/>
+Ver todos los productos: `api/get_all_products`<br/>
+buscar un producto por su nombre: `api/product_by_title{title}` <br/>
 
 <h5>Rutas con auth y super admin:</h5>
 
-Modifica tu nick de usuario: `api/create_product`<br/>
-Crea un canal con el id del juego: `api/delete_product/{id}`<br/>
-Unete a un canal conociendo su id: `api/update_product/{id}`<br/>
+Crear un producto: `api/create_product`<br/>
+Borrar un producto: `api/delete_product/{id}`<br/>
+Modificar un producto: `api/update_product/{id}`<br/>
 
 ### Rutas de tipo de producto:
 
-Deja a un canal al que perteneces conociendo su id: `api/get_all_Types`<br/>
+Obtener todos los tipos de producto: `api/get_all_Types`<br/>
 
 <h5>Rutas con auth y super admin:</h5>
 
-Manda un mensaje al canal al que perteneces conociendo su id: `api/create_Type`<br/>
-Modifica un mensaje tuyo conociendo su id: `api/delete_Type/{id}`<br/>
-Obten todos los mensajes de un canal al que perteneces conociendo su id: `api/update_Type/{id}`<br/>
+Crear un tipo de producto: `api/create_Type`<br/>
+Borrar un tipo de producto: `api/delete_Type/{id}`<br/>
+Modificar un tipo de rpoducto: `api/update_Type/{id}`<br/>
 
 ### Rutas de super administrador:
 
