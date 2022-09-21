@@ -54,7 +54,20 @@ class AuthController extends Controller
 
     public function me()
     {
-        return response()->json(auth()->user());
+        $userId = auth()->user()->id;
+        $user = User::find($userId);
+        $role_id = [];
+        
+        foreach($user->roles as $role){
+            array_push($role_id, $role->pivot);
+        };
+
+        return response()->json(
+            [
+                'user'=> auth()->user(),
+                'roles'=> $role_id
+            ]
+        );
     }
 
     public function logout(Request $request)
