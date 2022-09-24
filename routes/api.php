@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Http\Request;
@@ -60,5 +61,6 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]] , function() {
     Route::post('/user/remove_super_admin/{id}', [AdminController::class, 'removeSuperAdminRoleToUser']);
     Route::post('/user/add_admin/{id}', [AdminController::class, 'addAdminRoleToUser']);
     Route::post('/user/remove_admin/{id}', [AdminController::class, 'removeAdminRoleToUser']);
-    Route::delete('/delete_user_by_id/{id}', [AuthController::class, 'deleteUserById']);
+    Route::delete('/delete_user_by_id/{id}', [AdminController::class, 'deleteUserById']);
+    Route::get('/get_all_users', [AdminController::class, 'getAllUsers']);
 });

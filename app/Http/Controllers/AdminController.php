@@ -95,4 +95,21 @@ class AdminController extends Controller
             ], 500);
         }
     }
+
+    public function getAllUsers() {
+        try {
+             $users = User::query()->get();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Users retrieved successfully',
+                'data' => $users
+            ]);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error retrieving ' . $exception->getMessage()
+            ]);
+        }
+    }
 }

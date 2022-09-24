@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 191)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 191);
-            $table->string('image', 191)->nullable()->default('');
+            $table->string('image', 191)->nullable()->default('https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg');
             $table->date('birth_date')->nullable()->default("1900-01-01");
             $table->string('phone', 191)->nullable()->default('');
             $table->boolean('status')->default(true);
